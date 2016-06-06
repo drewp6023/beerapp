@@ -9,6 +9,7 @@ var Route = ReactRouter.Route;
 require('./app.css');
 
 // Component Registry
+var StrainFilter = require('../StrainFilter/StrainFilter');
 
 // Models
 
@@ -39,29 +40,31 @@ var App = React.createClass({
 	},
     render () {
     	return (
-    		<section>
-                <div className="app-container">
-                    <div className="row">
-                        <div className="col-md-12 text-center">
-                            <img src="/app/components/App/leaflylogo.png"></img>
-                        </div>
-                    </div>
-        			<div className="row">
-                        <div className="col-md-6">
-                            <h3>Search for a strain:</h3>
-                            <div className="strain-filter-container">
-
+            <div>
+        		<section>
+                    <div className="section-container">
+                        <div className="row">
+                            <div className="col-md-12 text-center">
+                                <img src="/app/components/App/leaflylogo.png"></img>
                             </div>
                         </div>
-                        <div className="col-md-6">
-                            <h3>Output</h3>
-                            <div className="strain-filter-container">
+            			<div className="row">
+                            <div className="col-md-6">
+                                <h3>Search for a strain:</h3>
+                                <div className="strain-filter-container">
+                                    <StrainFilter />
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <h3>Output</h3>
+                                <div className="strain-filter-container">
 
-                            </div>                            
-                        </div>                    
-        			</div>
-                </div>
-	    	</section>
+                                </div>                            
+                            </div>                    
+            			</div>
+                    </div>
+    	    	</section>
+            </div>
     	);
     }
 });
