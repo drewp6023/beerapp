@@ -41,6 +41,11 @@ var App = React.createClass({
     	return (
     		<section>
                 <div className="app-container">
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                            <img src="/app/components/App/leaflylogo.png"></img>
+                        </div>
+                    </div>
         			<div className="row">
                         <div className="col-md-6">
                             <h3>Search for a strain:</h3>

@@ -1,2 +1,2 @@
-# reactwebpack
-Testing ReactJS and Webpack
+# leafapp
+Practicing ReactJS with Leafly
