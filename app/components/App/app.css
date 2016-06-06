@@ -1,0 +1,15 @@
+section {
+	padding: 25px;
+}
+.app-container {
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 5px;
+}
+.strain-filter-container {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	height: 300px;
+	background-color: #efefef;
+}
