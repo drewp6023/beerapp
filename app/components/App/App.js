@@ -9,8 +9,6 @@ var Route = ReactRouter.Route;
 require('./app.css');
 
 // Component Registry
-var StrainFilter = require('../StrainFilter/StrainFilter');
-var LeaflyRequest = require('../../models/LeaflyRequestModel.jsx');
 
 // Models
 
@@ -22,7 +20,7 @@ var App = React.createClass({
     // mixins: [ReactFireMixin],
 	getInitialState () {
 		return {
-            formData: LeaflyRequest
+            formData: {}
 		}
 	},
 	componentWillMount () {
@@ -45,20 +43,20 @@ var App = React.createClass({
         		<section>
                     <div className="section-container">
                         <div className="row">
-                            <div className="col-md-12 text-center">
-                                <img src="/app/components/App/leaflylogo.png"></img>
+                            <div className="col-md-12">
+                                <img src="/app/components/App/beerbadge.png" className="img-responsive center-block"></img>
                             </div>
                         </div>
             			<div className="row">
                             <div className="col-md-6">
-                                <h3>Search for a strain:</h3>
-                                <div className="strain-filter-container">
-                                    <StrainFilter formData={this.state.formData} />
+                                <h3>Search for beer:</h3>
+                                <div className="beer-filter-container">
+                                    
                                 </div>
                             </div>
                             <div className="col-md-6">
                                 <h3>Output</h3>
-                                <div className="strain-filter-container">
+                                <div className="beer-filter-container">
 
                                 </div>                            
                             </div>                    
