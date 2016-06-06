@@ -10,6 +10,7 @@ require('./app.css');
 
 // Component Registry
 var StrainFilter = require('../StrainFilter/StrainFilter');
+var LeaflyRequest = require('../../models/LeaflyRequestModel.jsx');
 
 // Models
 
@@ -21,7 +22,7 @@ var App = React.createClass({
     // mixins: [ReactFireMixin],
 	getInitialState () {
 		return {
-
+            formData: LeaflyRequest
 		}
 	},
 	componentWillMount () {
@@ -52,7 +53,7 @@ var App = React.createClass({
                             <div className="col-md-6">
                                 <h3>Search for a strain:</h3>
                                 <div className="strain-filter-container">
-                                    <StrainFilter />
+                                    <StrainFilter formData={this.state.formData} />
                                 </div>
                             </div>
                             <div className="col-md-6">
