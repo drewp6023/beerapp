@@ -1,4 +1,6 @@
 var React = require('react');
+var beerStore = require('../../stores/beerStore.js');
+var apiRequestStore = require('../../stores/apiRequestStore.js');
 
 // Components
 var BasicInputBox = require('../BasicInputBox/BasicInputBox');
@@ -18,8 +20,20 @@ var BeerFilter = React.createClass({
             beerIbu: '',
             beerName: '',
             loading: false,
-            loadingMessage: ''
+            loadingMessage: '',
+            beers: 
         };  
+    },
+    componentDidMount () {
+        beerStore.addChangeListener(this._onChange);
+    },
+    componentWillUnmount () {
+        beerStore.removeChangeListener(this._onChange);
+    },
+    _onChange () {
+        this.setState({
+            beers: beerStore.getBeers()
+        });
     },
     submit (e) {
         e.preventDefault();

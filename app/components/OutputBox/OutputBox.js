@@ -11,11 +11,7 @@ var OutputBox = React.createClass({
 	render () {
 		return (
 			<section>
-				{
-					this.props.response.map(function(obj, index) {
-
-					});
-				}
+			
 			</section>
 		);
 	}
