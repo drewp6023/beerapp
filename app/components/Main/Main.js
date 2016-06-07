@@ -5,6 +5,7 @@ require('./main.css');
 
 // Components
 var BeerFilter = require("../BeerFilter/BeerFilter");
+var OutputBox = require("../OutputBox/OutputBox");
 
 var Main = React.createClass({
     getInitialState () {
@@ -31,7 +32,7 @@ var Main = React.createClass({
                         <div className="col-md-6">
                             <h3>Output</h3>
                             <div className="beer-filter-container">
-
+                                <OutputBox />
                             </div>                            
                         </div>                    
                     </div>

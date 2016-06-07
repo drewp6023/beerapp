@@ -1,2 +1,2 @@
-# leafapp
-Practicing ReactJS with Leafly
+# Beer App
+Practicing ReactJS with BreweryDB
