@@ -1,5 +1,6 @@
 var React = require('react');
 var beerStore = require('../../stores/beerStore.js');
+var beerActions = require('../../actions/beerActions');
 var apiRequestStore = require('../../stores/apiRequestStore.js');
 
 // Components
@@ -21,7 +22,7 @@ var BeerFilter = React.createClass({
             beerName: '',
             loading: false,
             loadingMessage: '',
-            beers: 
+            beers: ''
         };  
     },
     componentDidMount () {
@@ -37,6 +38,7 @@ var BeerFilter = React.createClass({
     },
     submit (e) {
         e.preventDefault();
+        beerActions.clearBeers();
         var self = this;
         var _url = this.state.submissionUrl + this.state.endpoint;
         var data = {
@@ -48,6 +50,7 @@ var BeerFilter = React.createClass({
         if (this.state.beerAbv) data.abv = this.state.beerAbv;
         if (this.state.beerIbu) data.ibu = this.state.beerIbu;
 
+
         $.ajax({
             type: 'GET',
             url: _url,
@@ -55,9 +58,15 @@ var BeerFilter = React.createClass({
             success (response) {
                 console.log("success", response);
                 self.setState({
-                    numberOfPages: response.numberOfPages,
+                    numberOfPages: response.numberOfPages ? response.numberOfPages : 0,
                     serverResponse: response.data
                 });
+
+                if (response.data) {
+                    response.data.map(function(obj, index) {
+                        beerActions.addBeer(obj);
+                    });                   
+                }
             },
             error (response) {
                 console.log("fail", JSON.parse(response.responseText));
@@ -79,13 +88,13 @@ var BeerFilter = React.createClass({
             beerIbu: e.target.value
         })
     },
-    endpointChange (str) {
-        if (typeof str !== 'string') return;
+    // endpointChange (str) {
+    //     if (typeof str !== 'string') return;
 
-        this.setState({
-            endpoint: str
-        })
-    },
+    //     this.setState({
+    //         endpoint: str
+    //     })
+    // },
     render () {
         return (
             <form role="form" noValidate={this.state.noValidate} onSubmit={this.submit}>

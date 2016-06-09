@@ -1,6 +1,7 @@
 var appConstants = {
-    ADD_ITEM: "ADD_BEER",
-    REMOVE_ITEM: "REMOVE_BEER"
+    ADD_BEER: "ADD_BEER",
+    REMOVE_BEER: "REMOVE_BEER",
+    CLEAR_BEERS: "CLEAR_BEERS"
 };
 
 module.exports = appConstants;
