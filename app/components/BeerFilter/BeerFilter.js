@@ -16,6 +16,7 @@ var BeerFilter = React.createClass({
             apiKey: '17ec26c4245746fbc069e6f234fc67f1',
             endpoint: 'beers',
             numberOfPages: 0,
+            totalResults: 0,
             serverResponse: '',
             beerAbv: '',
             beerIbu: '',
@@ -59,6 +60,7 @@ var BeerFilter = React.createClass({
                 console.log("success", response);
                 self.setState({
                     numberOfPages: response.numberOfPages ? response.numberOfPages : 0,
+                    totalResults: response.totalResults ? response.totalResults : 0,
                     serverResponse: response.data
                 });
 
@@ -113,7 +115,8 @@ var BeerFilter = React.createClass({
                 <div className="row">
                     <div className="col-md-12">
                         <button type="submit" className="btn btn-primary pull-right">Search</button>                                                                                           
-                        <span>Number of pages: {this.state.numberOfPages}</span>
+                        <div>Number of pages: {this.state.numberOfPages}</div>
+                        <div>Total results: {this.state.totalResults}</div>
                     </div>
                 </div>
             </form>
