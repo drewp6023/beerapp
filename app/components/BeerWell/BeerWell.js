@@ -4,11 +4,6 @@ var React = require('react');
 require('./beerWell.css');
 
 var BeerWell = React.createClass({
-	getInitialState () {
-		return {
-
-		}
-	},
 	render () {
 		return (
 			<div className="container">
@@ -24,7 +19,7 @@ var BeerWell = React.createClass({
 						<span>ABV</span>
 					</div>
 					<div className="col-md-6">
-						<span>{this.props.beerObject.ibu ? this.props.beerObject.ibu : (this.props.beerObject.style.ibuMax ? this.props.beerObject.style.ibuMax : 0)}</span>
+						<span>{this.props.beerObject.ibu}</span>
 						<br />
 						<span>IBU</span>
 					</div>
