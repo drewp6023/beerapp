@@ -6,6 +6,7 @@ section {
     padding: 10px;
     border-radius: 5px;
     background-color: white;
+    height: 100%;
 }
 .beer-filter-container {
     padding: 10px;

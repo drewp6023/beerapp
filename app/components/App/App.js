@@ -4,12 +4,16 @@ var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
+var Link = ReactRouter.Link;
+var IndexRoute = ReactRouter.IndexRoute;
+var IndexLink = ReactRouter.IndexLink;
 
 // Style sheets
 require('./app.css');
 
 // Component Registry
-var Main = require('../Main/Main')
+var Main = require('../Main/Main');
+var Secondary = require('../Secondary/Secondary');
 
 // Models
 
@@ -23,11 +27,23 @@ var App = React.createClass({
 
 		}
 	},
-    render () {
+    render() {
     	return (
-            <div>
+            <section>
+                <ul className="nav nav-pills">
+                    <li className="active"><a href="#">Main</a></li>
+                    <li><a href="/secondary">Secondary</a></li>
+                </ul>            
                 <Main />
-            </div>
+
+                <Router>
+                    <Route path="/" component={Main}>
+                        <IndexRoute component={Main} />
+                        <Route path="secondary" component={Secondary} />
+                    </Route>
+                </Router>
+
+            </section>
     	);
     }
 });
